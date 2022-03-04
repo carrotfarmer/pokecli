@@ -9,7 +9,7 @@ A CLI to find information about Pokemon!
 ## Install
 
 ```bash
-$ npm install --global pokecli
+$ npm install --global @pokecli/pokecli
 ```
 
 ## CLI
