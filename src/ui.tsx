@@ -27,19 +27,15 @@ interface PokemonData {
 }
 
 const App: FC<{ name?: string }> = ({ name = "Stranger" }) => {
-	const [pokemonData, setPokemonData] = React.useState<PokemonData | null>(
-		null
-	);
+	const [pokemonData, setPokemonData] = React.useState<PokemonData | null>(null);
 
 	// fetch pokemon data with its name using pokeapi
-	const pokemon = (name: string): Promise<PokemonData> => {
+	const pokemon = async (name: string): Promise<PokemonData> => {
 		const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
 
-		return axios
-			.get<PokemonData>(url)
-			.then((response: AxiosResponse<PokemonData>) => {
-				return response.data;
-			});
+		return axios.get<PokemonData>(url).then((response: AxiosResponse<PokemonData>) => {
+			return response.data;
+		});
 	};
 
 	// call useEffect and use store the pokemon data in state
@@ -59,9 +55,7 @@ const App: FC<{ name?: string }> = ({ name = "Stranger" }) => {
 					</Text>
 					{"\n"}
 					{/* Display a divider */}
-					<Text color="magentaBright">
-						{Array(pokemonData?.name.length + 1).join("-")}
-					</Text>
+					<Text color="magentaBright">{Array(pokemonData?.name.length + 1).join("-")}</Text>
 					{"\n"}
 					<Text color="yellowBright">Metrics:</Text>{" "}
 					<Text color="greenBright" bold>

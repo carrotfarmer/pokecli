@@ -32,7 +32,7 @@
 				"tsx"
 			],
 			"rewritePaths": {
-				"source/": "dist/"
+				"src/": "dist/"
 			}
 		}
 	},
